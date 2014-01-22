@@ -7,9 +7,9 @@
                            	http://www.springframework.org/schema/context 
                            	http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean name="elevatorSystem" class="edu.rich.ElevatorSystem"/>
+	<bean name="elevatorSimulator" class="edu.rich.ElevatorSimulator"/>
 	
-	<bean name="elevatorController" class="edu.rich.elevatorsystem.controller.ElevatorController">
+	<bean name="elevatorController" class="edu.rich.simulator.elevator.controller.ElevatorController">
 		<constructor-arg>
 			<list>
 				<ref bean="elevatorOne"/>
@@ -18,13 +18,13 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean name="elevatorOne" class="edu.rich.elevatorsystem.pojo.Elevator">
+	<bean name="elevatorOne" class="edu.rich.simulator.elevator.pojo.Elevator">
 		<property name="elevatorNumber" value="1"/>
 		<property name="elevatorDoorStatus" value="closed"/>
 		<property name="currentFloor" value="ground"/>
 	</bean>
 	
-	<bean name="elevatorTwo" class="edu.rich.elevatorsystem.pojo.Elevator">
+	<bean name="elevatorTwo" class="edu.rich.simulator.elevator.pojo.Elevator">
 		<property name="elevatorNumber" value="2"/>
 		<property name="elevatorDoorStatus" value="closed"/>
 		<property name="currentFloor" value="ground"/>
