@@ -20,13 +20,13 @@
 	
 	<bean name="elevatorOne" class="edu.rich.simulator.elevator.pojo.Elevator">
 		<property name="elevatorNumber" value="1"/>
-		<property name="elevatorDoorStatus" value="closed"/>
+		<property name="doorStatus" value="closed"/>
 		<property name="currentFloor" value="ground"/>
 	</bean>
 	
 	<bean name="elevatorTwo" class="edu.rich.simulator.elevator.pojo.Elevator">
 		<property name="elevatorNumber" value="2"/>
-		<property name="elevatorDoorStatus" value="closed"/>
+		<property name="doorStatus" value="closed"/>
 		<property name="currentFloor" value="ground"/>
 	</bean>
 </beans>
