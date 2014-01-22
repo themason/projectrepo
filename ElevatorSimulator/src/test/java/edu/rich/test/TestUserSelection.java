@@ -3,6 +3,7 @@ package edu.rich.test;
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -17,8 +18,9 @@ public class TestUserSelection {
 	@Before
 	public void initialise() {
 		elevatorSystem = new ElevatorSimulator();
-		options.add("Test 1");
-		options.add("Test 2");
+		options = new ArrayList<String>();
+		options.add("Test 1\n");
+		options.add("Test 2\n");
 		System.setIn(new ByteArrayInputStream("Test".getBytes()));
 	}
 
