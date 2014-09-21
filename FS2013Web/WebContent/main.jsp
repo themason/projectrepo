@@ -8,23 +8,6 @@
 	</head>
 	<body>
 		<h1>properties</h1>
-		<% 
-		  int    len = request.getContentLength(); 
-		  String fileContents = ""; 
-		  if (len > 0) { 
-		    char[] cbuf = new char[len]; 
-		    int    n = request.getReader().read(cbuf, 0, len); 
-		  	fileContents = new String(cbuf); 
-		  }
-		  session.setAttribute("fileContents", fileContents);
-  		%> 
-
-    	%>
-    	<form action="" method="post" enctype="multipart/form-data"> 
-    		<input type="hidden" name="oneTwoThree" value="123"/> 
-    		<input type="file" name="fil"/> 
-    		<input type="submit"/> 
-    	</form>
 		<% // Scriptlet 1: check whether the savegamePropertiesList is ready
 			@SuppressWarnings("unchecked")
 			Map<String, String> savegamePropertiesList = 
@@ -44,11 +27,10 @@
 				}
 				%>
 				</select>
-				<input type="text" name="propertyValue">
-					
-				<input type="submit" value="Update properties">
+			<input type="text" name="propertyValue">
+				
+			<input type="submit" value="Update properties">
 	    	</form>
-	    	
 	    	<form name="uploadForm" action="savegame" method="POST">
 	    		<input type="hidden" name="doThis" value="upload">
 	    		<input type="submit" value="Upload new file"/>

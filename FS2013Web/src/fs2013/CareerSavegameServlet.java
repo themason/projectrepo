@@ -74,7 +74,6 @@ public class CareerSavegameServlet extends HttpServlet {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/main.jsp");
 			rd.forward(req, res);
 		} else if (doThis.equals("upload")) {
-			String fileContents = (String) session.getAttribute("fileContents");
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
 			rd.forward(req, res);
 		} else if (doThis.equals("update")) {
