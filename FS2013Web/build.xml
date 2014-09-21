@@ -1,0 +1,47 @@
+<project name="FS2013" default="gensrc" basedir=".">
+	<description>
+        Used to create Java classes from the FS2013 schema
+	</description>
+	<!-- set global properties for this build -->
+
+	<property name="gensrc" location="gensrc/java"/>
+	<property name="schema"  location="xsd"/>
+	<property name="javac.debug" value="true"/>
+	<property name="javac.source" value="1.6"/>
+	<property name="javac.target" value="1.6"/>
+
+	<path id="libs">
+		<fileset dir="lib" includes="*.jar"/>
+	</path>
+
+	<path id="jaxb-libs">
+		<fileset dir="jaxb-lib" includes="*.jar"/>
+	</path>
+
+	<target name="clean" description="clean up">
+		<delete dir="${gensrc}"/>
+	</target>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+
+		<mkdir dir="${gensrc}"/>
+		<taskdef name="xjc" classname="org.jvnet.jaxb2_commons.xjc.XJC2Task">
+			<!-- XJC2 Task classpath -->
+			<classpath>
+				<path refid="jaxb-libs"/>
+			</classpath>
+		</taskdef>
+	</target>
+
+	<target name="gensrc" depends="clean,init">
+		<xjc schema="${schema}/careerSavegame.xsd"			
+			package="fs2013"
+			destdir="${gensrc}"
+			extension="true"> 
+			<depends dir="${schema}" includes="msml.*" />
+			<produces dir="${gensrc}" includes="**/*" />
+		</xjc>
+	</target>
+</project>

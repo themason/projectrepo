@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="careerSavegame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="farmSiloAmounts"/>
+        <xs:element ref="fillTypePrices"/>
+        <xs:element ref="rains"/>
+        <xs:element ref="currentRain"/>
+        <xs:element ref="lastRain"/>
+      </xs:sequence>
+      <xs:attribute name="autoBackupIndex" use="required" type="xs:integer"/>
+      <xs:attribute name="completedMowingMissions" use="required" type="xs:integer"/>
+      <xs:attribute name="completedTransportMissions" use="required" type="xs:integer"/>
+      <xs:attribute name="currentDay" use="required" type="xs:integer"/>
+      <xs:attribute name="dayTime" use="required" type="xs:decimal"/>
+      <xs:attribute name="densityMapRevision" use="required" type="xs:integer"/>
+      <xs:attribute name="difficulty" use="required" type="xs:integer"/>
+      <xs:attribute name="eastState1" use="required" type="xs:integer"/>
+      <xs:attribute name="eastState2" use="required" type="xs:integer"/>
+      <xs:attribute name="expenses" use="required" type="xs:decimal"/>
+      <xs:attribute name="foundHelpIcons" use="required" type="xs:integer"/>
+      <xs:attribute name="foundHorseshoeCount" use="required" type="xs:integer"/>
+      <xs:attribute name="foundHorseshoes" use="required"/>
+      <xs:attribute name="fuelUsage" use="required" type="xs:decimal"/>
+      <xs:attribute name="hectaresSeeded" use="required" type="xs:decimal"/>
+      <xs:attribute name="hectaresThreshed" use="required" type="xs:decimal"/>
+      <xs:attribute name="hectaresWorked" use="required" type="xs:decimal"/>
+      <xs:attribute name="loan" use="required" type="xs:integer"/>
+      <xs:attribute name="loanAnnualInterestRate" use="required" type="xs:integer"/>
+      <xs:attribute name="longSnowBreakCounter" use="required" type="xs:integer"/>
+      <xs:attribute name="mapId" use="required" type="xs:NCName"/>
+      <xs:attribute name="missionFrequency" use="required" type="xs:integer"/>
+      <xs:attribute name="money" use="required" type="xs:integer"/>
+      <xs:attribute name="plantGrowthRate" use="required" type="xs:integer"/>
+      <xs:attribute name="playTime" use="required" type="xs:decimal"/>
+      <xs:attribute name="resetVehicles" use="required" type="xs:boolean"/>
+      <xs:attribute name="revenue" use="required" type="xs:decimal"/>
+      <xs:attribute name="revision" use="required" type="xs:integer"/>
+      <xs:attribute name="saveDate" use="required" type="xs:date"/>
+      <xs:attribute name="seedUsage" use="required" type="xs:decimal"/>
+      <xs:attribute name="seedingDuration" use="required" type="xs:decimal"/>
+      <xs:attribute name="showIconsOnPDA" use="required" type="xs:boolean"/>
+      <xs:attribute name="threshingDuration" use="required" type="xs:decimal"/>
+      <xs:attribute name="timeScale" use="required" type="xs:decimal"/>
+      <xs:attribute name="timeSinceLastRain" use="required" type="xs:decimal"/>
+      <xs:attribute name="traveledDistance" use="required" type="xs:decimal"/>
+      <xs:attribute name="valid" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="farmSiloAmounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="farmSiloAmount"/>
+      </xs:sequence>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="farmSiloAmount">
+    <xs:complexType>
+      <xs:attribute name="amount" use="required" type="xs:decimal"/>
+      <xs:attribute name="fillType" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fillTypePrices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="fillTypePrice"/>
+      </xs:sequence>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fillTypePrice">
+    <xs:complexType>
+      <xs:attribute name="fillType" use="required" type="xs:NCName"/>
+      <xs:attribute name="previousHourPrice" use="required" type="xs:decimal"/>
+      <xs:attribute name="price" use="required" type="xs:decimal"/>
+      <xs:attribute name="totalAmount" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rains">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rain"/>
+      </xs:sequence>
+      <xs:attribute name="numRains" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rain">
+    <xs:complexType>
+      <xs:attribute name="duration" use="required" type="xs:decimal"/>
+      <xs:attribute name="isValid" use="required" type="xs:boolean"/>
+      <xs:attribute name="rainTypeId" use="required" type="xs:NCName"/>
+      <xs:attribute name="startDay" use="required" type="xs:integer"/>
+      <xs:attribute name="startDayTime" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="currentRain">
+    <xs:complexType>
+      <xs:attribute name="isValid" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lastRain">
+    <xs:complexType>
+      <xs:attribute name="isValid" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
